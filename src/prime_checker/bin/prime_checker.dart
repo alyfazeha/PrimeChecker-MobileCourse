@@ -1,15 +1,24 @@
 import 'package:prime_checker/prime_checker.dart' as prime_checker;
 
 void main(List<String> arguments) {
-print('=== Program Pengecek Bilangan Prima ===');
+  // List untuk menyimpan riwayat pengecekan
+  List<Map<String, dynamic>> riwayat = [];
+
+  print('=== Program Pengecek Bilangan Prima ===');
   // Simulasi input beberapa angka
-  cekDanSimpan(7,);  
-  cekDanSimpan(10,); 
-  cekDanSimpan(2,);  
-  cekDanSimpan(1,);  
+  cekDanSimpan(7, riwayat);
+  cekDanSimpan(10, riwayat);
+  cekDanSimpan(2, riwayat);
+  cekDanSimpan(1, riwayat);
+
+  // Menampilkan riwayat menggunakan PERULANGAN (for-in)
+  print('\n=== Riwayat Pengecekan ===');
+  for (var item in riwayat) {
+    print("Angka: ${item['angka']} | Status: ${item['status']}");
+  }
 }
 
-void cekDanSimpan(int angka) {
+void cekDanSimpan(int angka, List<Map<String, dynamic>> riwayat) {
   bool isPrima = true;
 
   // Logika Bilangan Prima
@@ -27,4 +36,10 @@ void cekDanSimpan(int angka) {
 
   // PERCABANGAN: Menentukan teks status berdasarkan hasil cek
   String status = isPrima ? "Adalah Bilangan Prima" : "Bukan Bilangan Prima";
+
+  // Menyimpan hasil ke dalam riwayat
+  riwayat.add({
+    'angka': angka,
+    'status': status,
+  });
 }
