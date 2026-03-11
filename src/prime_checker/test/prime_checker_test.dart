@@ -1,0 +1,8 @@
+import 'package:prime_checker/prime_checker.dart';
+import 'package:test/test.dart';
+
+void main() {
+  test('calculate', () {
+    expect(calculate(), 42);
+  });
+}
