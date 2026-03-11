@@ -10,6 +10,7 @@ void main(List<String> arguments) {
   cekDanSimpan(10, riwayat);
   cekDanSimpan(2, riwayat);
   cekDanSimpan(1, riwayat);
+  cekDanSimpan(-5, riwayat);
 
   // Menampilkan riwayat menggunakan PERULANGAN (for-in)
   print('\n=== Riwayat Pengecekan ===');
@@ -19,6 +20,12 @@ void main(List<String> arguments) {
 }
 
 void cekDanSimpan(int angka, List<Map<String, dynamic>> riwayat) {
+  // PERCABANGAN: Validasi input (Angka harus positif)
+  if (angka <= 0) {
+    print("Peringatan: Angka ($angka) tidak valid. Masukkan angka > 0.");
+    return;
+  }
+
   bool isPrima = true;
 
   // Logika Bilangan Prima
